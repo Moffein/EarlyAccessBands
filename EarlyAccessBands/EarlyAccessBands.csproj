@@ -78,9 +78,6 @@
     <Reference Include="R2API">
       <HintPath>libs\R2API\R2API.dll</HintPath>
     </Reference>
-    <Reference Include="R2API.Language">
-      <HintPath>libs\R2API\R2API.Language.dll</HintPath>
-    </Reference>
     <Reference Include="Rewired_CSharp">
       <HintPath>libs\Rewired_CSharp.dll</HintPath>
     </Reference>

@@ -1,15 +1,19 @@
 ﻿using BepInEx;
 using R2API;
+using R2API.Utils;
 using RoR2;
 using RoR2.Projectile;
+using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
 namespace EarlyAccessBands
 {
-    [BepInDependency(LanguageAPI.PluginGUID)]
+    [BepInDependency("com.bepis.r2api")]
+    [R2API.Utils.R2APISubmoduleDependency(nameof(LanguageAPI))]
     [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.0")]
+    [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
     public class EarlyAccessBandsPlugin : BaseUnityPlugin
     {
         public static float iceBaseDamage = 2.5f;
@@ -63,9 +67,9 @@ namespace EarlyAccessBands
 
             int iceCount = attackerBody.inventory.GetItemCount(RoR2Content.Items.IceRing);
             int fireCount = attackerBody.inventory.GetItemCount(RoR2Content.Items.FireRing);
-            if ((iceCount + fireCount <= 0) || !Util.CheckRoll(procChance, attackerBody.master)) return;
-
             DamageInfo damageInfo = damageReport.damageInfo;
+            if ((iceCount + fireCount <= 0) || !Util.CheckRoll(procChance * damageInfo.procCoefficient, attackerBody.master)) return;
+
             damageInfo.procChainMask.AddProc(ProcType.Rings);
 
             CharacterBody victimBody = damageReport.victimBody;
