@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarlyAccessBands", "EarlyAccessBands\EarlyAccessBands.csproj", "{EE3D32AE-AC02-4535-8500-EB468D3817FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE3D32AE-AC02-4535-8500-EB468D3817FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3D32AE-AC02-4535-8500-EB468D3817FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3D32AE-AC02-4535-8500-EB468D3817FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3D32AE-AC02-4535-8500-EB468D3817FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCC98A31-D7D3-4F53-9F5E-70B162B8DF15}
+	EndGlobalSection
+EndGlobal
