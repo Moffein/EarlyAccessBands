@@ -10,9 +10,9 @@ using UnityEngine.Networking;
 
 namespace EarlyAccessBands
 {
-    [BepInDependency("com.bepis.r2api")]
-    [R2API.Utils.R2APISubmoduleDependency(nameof(LanguageAPI))]
-    [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.0")]
+    [BepInDependency(R2API.R2API.PluginGUID)]
+    [BepInDependency(R2API.LanguageAPI.PluginGUID)]
+    [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.1")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
     public class EarlyAccessBandsPlugin : BaseUnityPlugin
     {
