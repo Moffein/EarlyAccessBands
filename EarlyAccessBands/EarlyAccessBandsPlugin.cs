@@ -12,7 +12,7 @@ namespace EarlyAccessBands
 {
     [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency(R2API.LanguageAPI.PluginGUID)]
-    [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.1")]
+    [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.2")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
     public class EarlyAccessBandsPlugin : BaseUnityPlugin
     {
@@ -65,10 +65,10 @@ namespace EarlyAccessBands
 
             CharacterBody attackerBody = damageReport.attackerBody;
 
-            int iceCount = attackerBody.inventory.GetItemCount(RoR2Content.Items.IceRing);
-            int fireCount = attackerBody.inventory.GetItemCount(RoR2Content.Items.FireRing);
+            int iceCount = attackerBody.inventory.GetItemCountEffective(RoR2Content.Items.IceRing);
+            int fireCount = attackerBody.inventory.GetItemCountEffective(RoR2Content.Items.FireRing);
             DamageInfo damageInfo = damageReport.damageInfo;
-            if ((iceCount + fireCount <= 0) || !Util.CheckRoll(procChance * damageInfo.procCoefficient, attackerBody.master)) return;
+            if ((iceCount + fireCount <= 0) || (!damageInfo.procChainMask.HasProc(ProcType.SureProc) && !Util.CheckRoll(procChance * damageInfo.procCoefficient, attackerBody.master))) return;
 
             damageInfo.procChainMask.AddProc(ProcType.Rings);
 
