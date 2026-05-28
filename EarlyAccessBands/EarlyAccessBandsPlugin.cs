@@ -12,7 +12,7 @@ namespace EarlyAccessBands
 {
     [BepInDependency(R2API.R2API.PluginGUID)]
     [BepInDependency(R2API.LanguageAPI.PluginGUID)]
-    [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.2")]
+    [BepInPlugin("com.Moffein.EarlyAccessBands", "EarlyAccessBands", "1.0.3")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
     public class EarlyAccessBandsPlugin : BaseUnityPlugin
     {
@@ -64,6 +64,7 @@ namespace EarlyAccessBands
             if (damageReport.damageInfo.rejected || damageReport.damageInfo.procCoefficient <= 0f || !damageReport.attackerBody || !damageReport.victimBody || damageReport.damageInfo.procChainMask.HasProc(ProcType.Rings)) return;
 
             CharacterBody attackerBody = damageReport.attackerBody;
+            if (!attackerBody.inventory) return;
 
             int iceCount = attackerBody.inventory.GetItemCountEffective(RoR2Content.Items.IceRing);
             int fireCount = attackerBody.inventory.GetItemCountEffective(RoR2Content.Items.FireRing);
